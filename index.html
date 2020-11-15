@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Together Networks Game</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+      integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden">
+    <header class="header bg-info pb-1">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Together Networks Game</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 d-flex justify-content-between align-items-end header__btns">
+            <button
+              id="startBtn"
+              type="button"
+              class="btn btn-success"
+              onclick="gameStart('newGame')"
+            >
+              START
+            </button>
+            <button
+              id="pauseBtn"
+              type="button"
+              class="btn btn-success d-none"
+              onclick="gameStart('pauseGame')"
+            >
+              PAUSE
+            </button>
+            <button
+              id="unpausedBtn"
+              type="button"
+              class="btn btn-success d-none"
+              onclick="gameStart('unpausedGame')"
+            >
+              UNPAUSED
+            </button>
+            <button type="button" class="btn btn-danger" onclick="gameStart('removePlaingGame')">
+              NEW GAME
+            </button>
+          </div>
+          <form
+            id="formGroupScore"
+            class="col-3 d-flex flex-column justify-content-end align-items-start header__score"
+          >
+            <label for="inputGroupScore" class="form-label">Score</label>
+            <input
+              type="number"
+              class="form-control d-flex justify-content-center w-50 text-right"
+              id="inputGroupScore"
+              placeholder="00"
+              disabled
+            />
+          </form>
+          <div class="col-3 d-flex flex-column justify-content-end align-items-start header__time">
+            <p class="form-label m-0">Time left</p>
+            <div
+              class="form-control d-flex justify-content-center w-50 text-right"
+              id="formGroupTimer"
+            >
+              1m 00s
+            </div>
+          </div>
+          <div class="col-2 d-flex flex-column justify-content-end align-items-start">
+            <button type="button" class="btn btn-danger" onclick="removeRecords()">
+              CLEAR RECORDS
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main h-100 pt-5 pb-5 bg-light">
+      <div class="container h-100">
+        <div class="row h-100 d-flex justify-content-between">
+          <section
+            class="col-8 border border-3 border-dark h-100 p-0 rounded game-field"
+            id="gameField"
+          ></section>
+          <aside class="col-3 border border-3 border-dark rounded h-100 score-table">
+            <h2>Result Table</h2>
+            <ul id="listWrapperID"></ul>
+          </aside>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="scoreModal"
+        tabindex="-1"
+        aria-hidden="true"
+        data-backdrop="static"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-end"></div>
+            <div class="modal-body">
+              <h3>
+                Your score: <span class="font-weight-bold text-danger" id="endGameScore">180</span>
+              </h3>
+              <form class="row d-flex align-items-center mb-3" name="endGameScoreForm">
+                <div class="col-auto">
+                  <label for="inputName" class="col-form-label">Name</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" id="inputName" class="form-control" maxlength="10" />
+                </div>
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="gameEnd()">
+                  Save score
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Modal-->
+    </main>
+    <footer class="footer d-flex align-items-center pt-2 pb-2 bg-info">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p class="text-left font-weight-light font-italic m-0">Develop by Anton Kucherenko</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+      integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

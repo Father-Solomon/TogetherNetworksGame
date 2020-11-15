@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 140px 1fr 30px;
+}
+#listWrapperID li {
+  display: flex;
+  justify-content: space-between;
+}
+#listWrapperID li .name {
+  font-weight: bold;
+  margin: 0 auto 0 15px;
+}
+#listWrapperID li .score {
+  font-weight: bold;
+  color: red;
+}
+#gameField td {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+#gameField td.red {
+  background-color: red;
+}
+#gameField td.green {
+  background-color: green;
+}
+#gameField td.purple {
+  background-color: purple;
+}
